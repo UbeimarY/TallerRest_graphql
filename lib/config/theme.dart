@@ -10,41 +10,40 @@ class AppTheme {
   static const Color textSecondary = Color(0xFFAAAAAA);
 
   static ThemeData get dark => ThemeData(
-    brightness: Brightness.dark,
-    scaffoldBackgroundColor: background,
-    colorScheme: const ColorScheme.dark(
-      primary: primary,
-      secondary: secondary,
-      surface: surface,
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: background,
-      elevation: 0,
-      titleTextStyle: TextStyle(
-        color: textPrimary,
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-      ),
-      iconTheme: IconThemeData(color: textPrimary),
-    ),
-    textTheme: const TextTheme(
-      headlineLarge: TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(
-        color: textPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      bodyLarge: TextStyle(color: textPrimary),
-      bodyMedium: TextStyle(color: textSecondary),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: surface,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: BorderSide.none,
-      ),
-      hintStyle: const TextStyle(color: textSecondary),
-      prefixIconColor: textSecondary,
-    ),
-  );
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: background,
+        colorScheme: const ColorScheme.dark(
+          primary: primary,
+          secondary: secondary,
+          surface: surface,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: background,
+          elevation: 0,
+          titleTextStyle: TextStyle(
+            color: textPrimary,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+          iconTheme: IconThemeData(color: textPrimary),
+        ),
+        textTheme: const TextTheme(
+          headlineLarge:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.bold),
+          headlineMedium:
+              TextStyle(color: textPrimary, fontWeight: FontWeight.w600),
+          bodyLarge: TextStyle(color: textPrimary),
+          bodyMedium: TextStyle(color: textSecondary),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: surface,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide.none,
+          ),
+          hintStyle: const TextStyle(color: textSecondary),
+          prefixIconColor: textSecondary,
+        ),
+      );
 }

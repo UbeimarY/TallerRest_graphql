@@ -6,8 +6,7 @@ class CountryService {
 
   CountryService(this._client);
 
-  // Query para obtener todos los países
-  static const String _getAllCountriesQuery = '''
+  static const String _getAllCountriesQuery = r'''
     query GetAllCountries {
       countries {
         code
@@ -25,10 +24,9 @@ class CountryService {
     }
   ''';
 
-  // Query para obtener países por continente
-  static const String _getByContinent = '''
-    query GetByContinent(\$filter: CountryFilterInput) {
-      countries(filter: \$filter) {
+  static const String _getByContinent = r'''
+    query GetByContinent($filter: CountryFilterInput) {
+      countries(filter: $filter) {
         code
         name
         emoji
@@ -57,7 +55,9 @@ class CountryService {
     }
 
     final data = result.data?['countries'] as List<dynamic>? ?? [];
-    return data.map((c) => Country.fromJson(c)).toList();
+    return data
+        .map((c) => Country.fromJson(c as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<Country>> getCountriesByContinent(String continentCode) async {
@@ -77,6 +77,8 @@ class CountryService {
     }
 
     final data = result.data?['countries'] as List<dynamic>? ?? [];
-    return data.map((c) => Country.fromJson(c)).toList();
+    return data
+        .map((c) => Country.fromJson(c as Map<String, dynamic>))
+        .toList();
   }
 }

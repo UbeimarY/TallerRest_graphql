@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         itemCount: continents.length,
-        itemBuilder: (_, i) {
+        itemBuilder: (context, i) {
           final c = continents[i];
           final selected = c['code'] == _continent;
           return GestureDetector(
@@ -195,16 +195,14 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
       child: Text(
         '${_filtered.length} countries found',
-        style: const TextStyle(
-          color: AppTheme.textSecondary,
-          fontSize: 12,
-        ),
+        style: const TextStyle(color: AppTheme.textSecondary, fontSize: 12),
       ),
     );
   }
 
   Widget _buildBody() {
     if (_loading) return const ShimmerLoader();
+
     if (_error != null) {
       return Center(
         child: Column(
@@ -227,6 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
+
     if (_filtered.isEmpty) {
       return const Center(
         child: Column(
@@ -249,13 +248,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: ListView.builder(
         itemCount: _filtered.length,
         padding: const EdgeInsets.only(top: 8, bottom: 20),
-        itemBuilder: (_, i) => CountryCard(
+        itemBuilder: (context, i) => CountryCard(
           country: _filtered[i],
           index: i,
           onTap: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (_) => CountryDetailScreen(country: _filtered[i]),
+              builder: (context) => CountryDetailScreen(country: _filtered[i]),
             ),
           ),
         ),

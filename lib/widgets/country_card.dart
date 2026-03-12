@@ -40,7 +40,6 @@ class CountryCard extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              // Emoji bandera
               Container(
                 width: 60,
                 height: 60,
@@ -56,7 +55,6 @@ class CountryCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              // Info
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,8 +130,11 @@ class CountryCard extends StatelessWidget {
       ),
       child: Text(
         label,
-        style:
-            TextStyle(color: color, fontSize: 10, fontWeight: FontWeight.w600),
+        style: TextStyle(
+          color: color,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }

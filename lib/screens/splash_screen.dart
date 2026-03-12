@@ -19,8 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           context,
           PageRouteBuilder(
-            pageBuilder: (_, _, _) => const HomeScreen(),
-            transitionsBuilder: (_, anim, _, child) =>
+            pageBuilder: (ctx, anim1, anim2) => const HomeScreen(),
+            transitionsBuilder: (ctx, anim, secAnim, child) =>
                 FadeTransition(opacity: anim, child: child),
             transitionDuration: const Duration(milliseconds: 600),
           ),
@@ -79,9 +79,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: color.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: color.withOpacity(0.4)),
+        border: Border.all(color: color.withValues(alpha: 0.4)),
       ),
       child: Text(
         label,

@@ -75,10 +75,7 @@ class WeatherCard extends StatelessWidget {
               ],
             ),
           ),
-          Text(
-            weather.icon,
-            style: const TextStyle(fontSize: 64),
-          ),
+          Text(weather.icon, style: const TextStyle(fontSize: 64)),
         ],
       ),
     ).animate().fadeIn(duration: 500.ms).scale(begin: const Offset(0.95, 0.95));

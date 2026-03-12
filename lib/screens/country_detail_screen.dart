@@ -40,21 +40,20 @@ class _CountryDetailScreenState extends State<CountryDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final c = widget.country;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _buildAppBar(c),
+          _buildAppBar(widget.country),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 24),
-                _buildWeatherSection(c),
+                _buildWeatherSection(widget.country),
                 const SizedBox(height: 24),
-                _buildInfoSection(c),
+                _buildInfoSection(widget.country),
                 const SizedBox(height: 24),
-                _buildLanguagesSection(c),
+                _buildLanguagesSection(widget.country),
                 const SizedBox(height: 40),
               ],
             ),
@@ -141,12 +140,16 @@ class _CountryDetailScreenState extends State<CountryDetailScreen> {
                 const Text(
                   'Weather unavailable',
                   style: TextStyle(
-                      color: AppTheme.textPrimary, fontWeight: FontWeight.bold),
+                    color: AppTheme.textPrimary,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   'Capital: ${c.capital}',
                   style: const TextStyle(
-                      color: AppTheme.textSecondary, fontSize: 12),
+                    color: AppTheme.textSecondary,
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
@@ -205,14 +208,12 @@ class _CountryDetailScreenState extends State<CountryDetailScreen> {
       children: items
           .asMap()
           .entries
-          .map(
-            (e) => _infoTile(
-              e.value['icon']!,
-              e.value['label']!,
-              e.value['value']!,
-              e.key,
-            ),
-          )
+          .map((e) => _infoTile(
+                e.value['icon']!,
+                e.value['label']!,
+                e.value['value']!,
+                e.key,
+              ))
           .toList(),
     );
   }
